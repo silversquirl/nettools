@@ -1,11 +1,17 @@
-# netcat
+# nettools
 
-This is my implementation of the Unix tool `netcat`. It is much simpler than most other versions, and is not designed to be a drop-in replacement for any of them. It is written in around 100 lines of Go, making it both cross-platform and very easy to maintain.
+This is a collection of network-related tools written in Go. It currently includes a version of `netcat`, for linking a TCP socket to stdio and a tool called `netcoupler`, for linking two sockets to each other.
 
 ## Usage
 
-To connect to a network socket: `netcat addr:port`
+```bash
+netcat [OPTIONS] addr
+netcoupler [OPTIONS] addr1 addr2
+```
 
-To listen on a port: `netcat -l :port`
+Both tools have the same options.
 
-To listen on a port, keeping the socket open even after connections are closed: `netcat -l -k :port`
+- `-l` Listen on the provided address(es) instead of connecting
+- `-k` With `-l`, keep the socket(s) open after the remote disconnects
+
+Addresses are in the form `[host]:port`, where `host` can be an IP address or hostname and `port` is the TCP port to listen on or connect to. `host` is only optional in listen mode.

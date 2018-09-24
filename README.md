@@ -4,7 +4,7 @@ This is my implementation of the Unix tool `netcat`. It is much simpler than mos
 
 ## Usage
 
-To connect to a network socket: `netcat addr`
+To connect to a network socket: `netcat addr:port`
 
 To listen on a port: `netcat -l :port`
 
